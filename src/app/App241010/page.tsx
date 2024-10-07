@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function App() {
+export default function App241010() {
   const [count, setCount] = useState(0);
 
   function myFunction(myName: string): string {
