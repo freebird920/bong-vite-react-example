@@ -1,8 +1,11 @@
 export default function App241009() {
+
   function printHello() {
     console.log("Hello");
   }
-
+  const myMsg: () => string = () => {
+    return "mymsg";
+  };
   return (
     <>
       <h1>함수, 변수 그리고 console.log 연습</h1>
