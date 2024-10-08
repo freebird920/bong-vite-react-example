@@ -16,6 +16,9 @@ const HomePage = memo(() => {
           <a href="/241008">241008 html과 친해지기</a>
         </li>
         <li>
+          <a href="/241009">241009 변수, 상수, 함수</a>
+        </li>
+        <li>
           <a href="/241010">241010</a>
         </li>
       </ol>
