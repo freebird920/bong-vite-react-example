@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ResultClass from "../../classes/result_class";
 
 export default function App241010() {
   const [count, setCount] = useState(0);
@@ -12,6 +13,19 @@ export default function App241010() {
     setCount(count + 1);
   }
 
+  const myNewFunction: (myName: string) => ResultClass<boolean> = (
+    myName: string
+  ) => {
+    const isMyName = myName === "my name";
+    return new ResultClass<boolean>({
+      data: isMyName,
+      // error: new Error("myName is not correct"),
+    });
+  };
+
+  if (myNewFunction("shit").isError) {
+    throw myNewFunction("shit").error;
+  }
   const myWords = myFunction("my name");
 
   return (
