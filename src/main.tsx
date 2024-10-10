@@ -7,6 +7,7 @@ import App241010 from "./app/App241010/page.tsx";
 import App241008 from "./app/App241008/page.tsx";
 import App241009 from "./app/App241009/page.tsx";
 import AppFinal from "./app/AppFinal/page.tsx";
+import App241017 from "./app/App241017/page.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/241010",
     element: <App241010 />,
+  },
+  {
+    path: "/241017",
+    element: <App241017 />,
   },
   {
     path: "/final",

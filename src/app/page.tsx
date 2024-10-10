@@ -19,7 +19,10 @@ const HomePage = memo(() => {
           <a href="/241009">241009 변수, 상수, 함수</a>
         </li>
         <li>
-          <a href="/241010">241010</a>
+          <a href="/241010">241010 useState와 상태</a>
+        </li>
+        <li>
+          <a href="/241017">241017 fetch</a>
         </li>
         <li>
           <a href="/final">최종과제(아직 만드는 중)</a>
