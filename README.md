@@ -17,6 +17,10 @@
     - [HTML 태그](#html-태그)
       - [상수](#상수)
       - [타입](#타입)
+  - [2024. 10. 10. 목 숙제](#2024-10-10-목-숙제)
+    - [github 회원가입](#github-회원가입)
+    - [vscode 설치](#vscode-설치)
+    - [node.js 설치](#nodejs-설치)
   - [들어가기](#들어가기)
     - [웹 프로그래밍으로 프로그래밍을 배우는 것의 장점](#웹-프로그래밍으로-프로그래밍을-배우는-것의-장점)
     - [JavaScript](#javascript-1)
@@ -326,6 +330,27 @@ console.log(myArray[5]); // null 출력 의도적으로 비움
 let myWord = "hi";
 console.log(myWard); // undefined 출력
 ```
+
+
+## 2024. 10. 10. 목 숙제
+
+### github 회원가입
+- [github](https://github.com/)
+  
+### vscode 설치
+- [vscode 홈페이지](https://code.visualstudio.com/)
+- 적절한 버튼 눌려서 다운로드 (팁: 우측 위에 있음)
+  
+### node.js 설치
+- [node.js 홈페이지](https://nodejs.org/en)
+- 홈페이지의 Download Node.js(**LTS**) // 꼮 LTS
+- 설치 파일 실행
+- ![설치1](./readme/install_nodejs_1.png)
+- ![설치2](./readme/install_nodejs_2.png)
+- ![설치3](./readme/install_nodejs_3.png)
+- 다음 연타!! 
+- Node.js 는 설치 완료 후 꼭 **재부팅** 할 것
+
 
 ## 들어가기
 > React, Vite, TypeScript에 대해 설명하겠습니다. 이 세 가지 기술을 함께 사용하면 웹 개발이 매우 효율적이고 간편해집니다. 아래에 각 기술에 대한 간단한 소개를 추가합니다.
