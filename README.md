@@ -21,6 +21,7 @@
     - [github 회원가입](#github-회원가입)
     - [vscode 설치](#vscode-설치)
     - [node.js 설치](#nodejs-설치)
+    - [git 설치](#git-설치)
   - [들어가기](#들어가기)
     - [웹 프로그래밍으로 프로그래밍을 배우는 것의 장점](#웹-프로그래밍으로-프로그래밍을-배우는-것의-장점)
     - [JavaScript](#javascript-1)
@@ -350,6 +351,17 @@ console.log(myWard); // undefined 출력
 - ![설치3](./readme/install_nodejs_3.png)
 - 다음 연타!! 
 - Node.js 는 설치 완료 후 꼭 **재부팅** 할 것
+
+
+### git 설치
+- [git 홈페이지](https://git-scm.com/)
+- Download for windows 찾아서 클릭
+- **64-bit Git for Windows Setup** 클릭
+- 설치 파일 실행시킴
+- 다음 다음 누르다가 
+- 꼭! default editor 어쩌구 나오면 
+- **vscode** 선택 꼮ㄱ(insider 어쩌구 아니고 그냥 vscode로 찾아야함)
+- 저거 빼곤 다 기본값으로 하면 됩니다.
 
 
 ## 들어가기
