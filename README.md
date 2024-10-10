@@ -1,5 +1,7 @@
 # Bong React Vite Jangin
 
+![poster](./readme/posert_01.jpg)
+
 - [Bong React Vite Jangin](#bong-react-vite-jangin)
   - [2024. 10. 10. 목](#2024-10-10-목)
     - [웹애플리케이션이란?](#웹애플리케이션이란)
@@ -23,7 +25,7 @@
   - [TypeScript와 함께하는 React](#typescript와-함께하는-react)
   - [학생들을 위한 예제 프로젝트](#학생들을-위한-예제-프로젝트)
 
-![이미지 설명](./readme/bongcoder_kakao_qrcode.jpg)
+![qrcode](./readme/bongcoder_kakao_qrcode.jpg)
 ## 2024. 10. 10. 목
   > 24학년도 2학기는 React.js를 이용해 간단한 웹 애플리케이션을 만드는 것을 목표로 합니다. 
 
