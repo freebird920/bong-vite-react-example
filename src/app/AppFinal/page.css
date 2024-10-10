@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap");
 .final-page {
   /* font-family: ; */
-  font-family: "Noto Sans KR", sans-serif;
-  font-weight: 400;
+  font-family: "IBM Plex Sans KR", "Noto Sans KR", sans-serif;
+  font-weight: 500;
   font-optical-sizing: auto;
   font-smooth: auto;
 }
 .final-page button {
   font-family: "Noto Sans KR", sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   font-optical-sizing: auto;
   font-smooth: auto;
   border-radius: 5px;
@@ -16,17 +18,39 @@
   background-color: transparent;
   width: 100%;
 }
+.final-page label {
+  text-align: center;
+  flex-wrap: nowrap;
+  flex-basis: 100px;
+  flex-shrink: 1;
+
+  /* flex-grow: 1; */
+}
+
+.final-page input {
+  background-color: transparent;
+  border-width: 2px;
+  /* width: 100%; */
+  border-radius: 5px;
+  border-color: rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  flex-basis: 200px;
+  flex-shrink: 1;
+  flex-grow: 1;
+}
 
 .final-page button:hover {
   border: 2px solid black; /* 테두리 색을 한 번에 지정 */
   background-color: #f0f0f0;
-} 
+}
 
 .final-page textarea {
-  width: 100%;
+  flex-basis: 200px;
+  flex-shrink: 1;
+  flex-grow: 1;
   font-family: "Noto Sans KR", sans-serif;
   background-color: transparent;
-
+  border-color: rgba(0, 0, 0, 0.2);
   border-width: 2px;
   border-style: solid;
   border-radius: 5px;
@@ -35,6 +59,22 @@
   /* padding-top: 5px;
   padding-bottom: 5px; */
   box-sizing: border-box;
-  overflow: hidden; /* 스크롤바가 나오지 않게 설정 */
+  /* overflow: hidden; 스크롤바가 나오지 않게 설정 */
   resize: none; /* 사용자가 크기를 조절하지 못하게 설정 */
+}
+
+kbd {
+  background-color: #eee;
+  border-radius: 4px;
+  border: 1px solid #b4b4b4;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+    0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+  color: #333;
+  display: inline-block;
+  font-size: 0.85em;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
 }
