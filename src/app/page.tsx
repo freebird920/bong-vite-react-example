@@ -9,7 +9,12 @@ const HomePage = memo(() => {
       <a href="https://github.com/freebird920/bong-vite-react-example">
         봉우리코더 프로젝트 리포지토리 바로가기
       </a>
-
+      <h2>숙제</h2>
+      <ol>
+        <li>
+          <a href="/hw241010">241010숙제</a>
+        </li>
+      </ol>
       <h2>예제</h2>
       <ol>
         <li>
