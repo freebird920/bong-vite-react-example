@@ -22,6 +22,7 @@
     - [vscode 설치](#vscode-설치)
     - [node.js 설치](#nodejs-설치)
     - [git 설치](#git-설치)
+    - [vite로 react 프로젝트 만들기](#vite로-react-프로젝트-만들기)
   - [들어가기](#들어가기)
     - [웹 프로그래밍으로 프로그래밍을 배우는 것의 장점](#웹-프로그래밍으로-프로그래밍을-배우는-것의-장점)
     - [JavaScript](#javascript-1)
@@ -362,6 +363,49 @@ console.log(myWard); // undefined 출력
 - 꼭! default editor 어쩌구 나오면 
 - **vscode** 선택 꼮ㄱ(insider 어쩌구 아니고 그냥 vscode로 찾아야함)
 - 저거 빼곤 다 기본값으로 하면 됩니다.
+
+
+### vite로 react 프로젝트 만들기
+
+VSCode에서 <kbd>ctrl</kbd> + <kbd>`</kbd>를 입력해 터미널을 엽니다.
+
+아래 명령어를 복사하여 붙여넣고 <kbd>enter</kbd>키를 입력합니다.  
+```bash
+npm create vite@latest
+```
+```bash
+
+# 처음에 나오는거 
+Need to install the following packages:
+create-vite@5.5.3
+Ok to proceed? (y) y # y입력
+
+> bong-react-vite-jangin@0.0.1 npx
+> create-vite
+
+√ Project name: ... vite-project  # 원하는 프로젝트 이름 입력하고 enter
+? Select a framework: » - Use arrow-keys. Return to submit.
+    Vanilla
+    Vue
+>   React # React 선택
+    Preact
+    Lit
+    Svelte
+    Solid
+    Qwik
+    Others
+? Select a variant: » - Use arrow-keys. Return to submit.
+    TypeScript # 선택? 
+>   TypeScript + SWC # 또는 선택 (추천 - 좀 더 빠를지도?)
+    JavaScript
+    JavaScript + SWC
+    Remix ↗
+```
+- 터미널에서 `npm install` 입력하고 <kbd>enter</kbd>
+
+- `.\[내 폴더]\src\index.css` 안의 모든 글자를 지우고 저장한다. (내용만 삭제)
+- `.\[내 폴더]\src\App.css`파일을 삭제한다. (파일 자체 삭제)
+- `.\[내 폴더]\src\App.tsx`를 실행하고 안에 있는 모든 글자를 다 삭제한다.
 
 
 ## 들어가기
