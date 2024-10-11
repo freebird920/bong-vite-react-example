@@ -8,16 +8,7 @@
   font-optical-sizing: auto;
   font-smooth: auto;
 }
-.final-page button {
-  font-family: "Noto Sans KR", sans-serif;
-  font-weight: 600;
-  font-optical-sizing: auto;
-  font-smooth: auto;
-  border-radius: 5px;
-  border: 2px solid rgb(245, 180, 180); /* 테두리 색을 한 번에 지정 */
-  background-color: transparent;
-  width: 100%;
-}
+
 .final-page label {
   text-align: center;
   flex-wrap: nowrap;
@@ -27,7 +18,7 @@
   /* flex-grow: 1; */
 }
 
-.final-page input {
+.final-page  input {
   background-color: transparent;
   border-width: 2px;
   /* width: 100%; */
@@ -39,9 +30,20 @@
   flex-grow: 1;
 }
 
-.final-page button:hover {
-  border: 2px solid black; /* 테두리 색을 한 번에 지정 */
-  background-color: #f0f0f0;
+.final-page .custom-form-button{
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 600;
+  font-optical-sizing: auto;
+  font-smooth: auto;
+  border-radius: 5px;
+  border: 2px solid rgb(245, 180, 180);
+  background-color: transparent;
+  width: 100%;
+}
+
+section.final-page .custom-form-button:hover {
+  border: 2px solid blue !important; 
+  background-color: blue !important;
 }
 
 .final-page textarea {

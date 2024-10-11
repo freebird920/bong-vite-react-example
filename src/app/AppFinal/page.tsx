@@ -62,28 +62,47 @@ const AppFinal = memo(() => {
       <div>간단한 메모 애플리케이션 만들기</div>
       <div>목표: 상태를 이해하고, 사용할 수 있다.</div>
       <section>
-        <form onKeyDown={onFormKeyDown} onSubmit={onFormSubmit}>
-          <div style={{ display: "flex" }}>
-            <label htmlFor={`${compId}-memoTitle`}>제목</label>
-            <input id={`${compId}-memoTitle`} name="memoTitle" />
-          </div>
-          <div style={{ display: "flex" }}>
-            <label htmlFor={`${compId}-memoTitle`}>내용</label>
-            <textarea
-              id={`${compId}-memoContent`}
-              name="memoContent"
-              ref={textareaRef}
-              onInput={handleInput}
-              style={{ overflow: "hidden", resize: "none" }}
-            />
-          </div>
-          <button type="reset">
-            초기화(<kbd>Esc</kbd>)
-          </button>
-          <button type="submit">
-            저장(<kbd>Shift</kbd> + <kbd>Enter</kbd>)
-          </button>
-        </form>
+        <form
+          onKeyDown={onFormKeyDown}
+          onSubmit={onFormSubmit}
+          id={`${compId}-form-memo`}
+        ></form>
+        <div style={{ display: "flex" }}>
+          <label htmlFor={`${compId}-memoTitle`}>제목</label>
+          <input
+            form={`${compId}-form-memo`}
+            id={`${compId}-memoTitle`}
+            name="memoTitle"
+            required={true}
+          />
+        </div>
+        <div style={{ display: "flex" }}>
+          <label htmlFor={`${compId}-memoContent`}>내용</label>
+          <textarea
+            required={true}
+            placeholder="내용을 입력하세요."
+            form={`${compId}-form-memo`}
+            id={`${compId}-memoContent`}
+            name="memoContent"
+            ref={textareaRef}
+            onInput={handleInput}
+            style={{ overflow: "hidden", resize: "none" }}
+          />
+        </div>
+        <button
+          form={`${compId}-form-memo`}
+          className="custom-form-button"
+          type="reset"
+        >
+          초기화(<kbd>Esc</kbd>)
+        </button>
+        <button
+          type="submit"
+          form={`${compId}-form-memo`}
+          className="custom-form-button"
+        >
+          저장(<kbd>Shift</kbd> + <kbd>Enter</kbd>)
+        </button>
       </section>
       <section>
         <h2>메모 리스트</h2>
@@ -92,8 +111,8 @@ const AppFinal = memo(() => {
             return (
               <li key={index}>
                 <h3>{memo.title}</h3>
-                <p>{memo.content}</p>
                 <p>{memo.date.toLocaleString()}</p>
+                <p>{memo.content}</p>
               </li>
             );
           })}
