@@ -4,6 +4,8 @@
 
 - [Bong React Vite Jangin](#bong-react-vite-jangin)
   - [링크](#링크)
+  - [2024. 10. 17. 목](#2024-10-17-목)
+    - [지난시간 복습](#지난시간-복습)
   - [2024. 10. 10. 목](#2024-10-10-목)
     - [웹애플리케이션이란?](#웹애플리케이션이란)
     - [javascript, html, css](#javascript-html-css)
@@ -23,16 +25,6 @@
     - [node.js 설치](#nodejs-설치)
     - [git 설치](#git-설치)
     - [vite로 react 프로젝트 만들기](#vite로-react-프로젝트-만들기)
-  - [들어가기](#들어가기)
-    - [웹 프로그래밍으로 프로그래밍을 배우는 것의 장점](#웹-프로그래밍으로-프로그래밍을-배우는-것의-장점)
-    - [JavaScript](#javascript-1)
-    - [React](#react)
-    - [Vite](#vite-1)
-    - [TypeScript](#typescript)
-  - [vite로 시작하기](#vite로-시작하기)
-  - [React 시작하기](#react-시작하기)
-  - [TypeScript와 함께하는 React](#typescript와-함께하는-react)
-  - [학생들을 위한 예제 프로젝트](#학생들을-위한-예제-프로젝트)
 
 ![qrcode](./readme/bongcoder_kakao_qrcode.jpg)
 
@@ -41,7 +33,55 @@
 - [예제](https://bong-vite-react-example.pages.dev/)
 - [카카오톡오픈채팅](https://open.kakao.com/o/gcyGpNmg)
 
-## 숙제 2024. 10. 10. 목
+## 2024. 10. 17. 목
+
+### 지난시간 복습
+- 웹애플리케이션: **인터넷 브라우저**를 통해 실행할 수 있는 소프트웨어
+- 인터넷 브라우저: **인터넷 브라우저**는 html, css, javascript 파일을 해석할 수 있다. 
+- html: 웹애플리케이션 페이지의 구조와 내용을 담은 파일.
+- css: 웹애플리케이션의 모양을 바꿀 수 있는 파일
+- javascript: 웹애플리케이션의 기능을 담당하는 파일
+
+- react components: **함수**  html을 return 한다. (엄밀히 말하면 html은 아님)
+
+- 함수의 구조: 
+  ```tsx
+  function 함수이름(입: any){
+    let 결과값 = 입+10;
+    return 결과값;
+  }
+  ```
+
+
+- react component 
+    - react 컴포넌트는 함수다. 
+    - react에서 이걸 가져다가 쓸 수 있다. 
+    - react 컴포넌트는 html(reactNode)을 return한다. 
+    - react 컴포넌트에서 return하는 html(reactNode)는 `<></>`이걸로 감싸야 한다. 
+    - 이 함수를 `export default 함수이름`으로 내보내면 출력 가능~
+-   ``` tsx
+    function 함수이름() {
+      
+      // 여기에 각종 기능
+
+      return(
+        <>
+        <!-- 여기에 HTML(react Node) -->
+        </>
+      );
+    }
+    export default 함수이름;
+    ```   
+
+- 변수: **let**으로 선언하는, 일종의 박스, 나중에 값을 집어넣거나 바꿀 수 있다.
+- 상수: **const**로 선언하는, 일종의 금고. 나중에 값을 바꿀 수 없다. 
+
+- react에서 사용하는 html 
+    - `<></>` react fragment, react에서만 사용하는 일종의 빈 태그. 그냥 당분간 강박적으로 모든 react 컴포넌트는 `<></>`로 시작할 예정
+    - `<h1>제목</h1>` h태그는 h뒤에 있는 숫자가 작아질 수록 높은 계층의 제목
+    - `<p>문단</p>` p태그는 문단을 말함.
+
+## 2024. 10. 10. 목
   > 24학년도 2학기는 React.js를 이용해 간단한 웹 애플리케이션을 만드는 것을 목표로 합니다. 
 
 ### 웹애플리케이션이란?
