@@ -30,6 +30,9 @@ const HomePage = memo(() => {
           <a href="/241017">241017 fetch</a>
         </li>
         <li>
+          <a href="/241024">241024 </a>
+        </li>
+        <li>
           <a href="/final">최종과제(아직 만드는 중)</a>
         </li>
       </ol>
