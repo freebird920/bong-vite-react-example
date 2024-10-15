@@ -3,6 +3,7 @@ interface BongMemoType {
     name: string;
     age: string;
     date: Date;
+    content: string;
 }
 
 /**
@@ -13,7 +14,8 @@ class BongMemoSchema {
         public id: string, 
         public title: string, 
         public age: string, 
-        public date: Date
+        public date: Date,
+        public content: string,
     ) {}
 
     // Plain Object에서 BongMemoSchema 인스턴스를 생성하는 메소드
@@ -22,7 +24,8 @@ class BongMemoSchema {
             plainObject.title,
             plainObject.name,
             plainObject.age,
-            plainObject.date
+            plainObject.date,
+            plainObject.content,
         );
     }
 }
