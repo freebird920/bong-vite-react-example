@@ -1,3 +1,5 @@
+import { BongMemoSchema } from "../schemas/BongMemoSchema";
+
 export class IndexedService {
   private static instance: IndexedService;
   private db: IDBDatabase | null = null;

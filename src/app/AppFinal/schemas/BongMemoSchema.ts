@@ -9,7 +9,7 @@ interface BongMemoType {
 /**
  * # BongMemoSchema
  */
-class BongMemoSchema {
+export class BongMemoSchema {
     constructor(
         public id: string, 
         public title: string, 
