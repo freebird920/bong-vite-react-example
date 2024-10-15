@@ -1,0 +1,28 @@
+interface BongMemoType {
+    title: string;
+    name: string;
+    age: string;
+    date: Date;
+}
+
+/**
+ * # BongMemoSchema
+ */
+class BongMemoSchema {
+    constructor(
+        public id: string, 
+        public title: string, 
+        public age: string, 
+        public date: Date
+    ) {}
+
+    // Plain Object에서 BongMemoSchema 인스턴스를 생성하는 메소드
+    static fromPlainObject(plainObject: BongMemoType): BongMemoSchema {
+        return new BongMemoSchema(
+            plainObject.title,
+            plainObject.name,
+            plainObject.age,
+            plainObject.date
+        );
+    }
+}

@@ -1,6 +1,6 @@
 // import css
 import "./page.css";
-import { memo,  useEffect,  useId, useRef, useState } from "react";
+import { memo, useEffect, useId, useRef, useState } from "react";
 import { IndexedService } from "./services/indexedService";
 
 class BongMemo {
@@ -14,19 +14,16 @@ class BongMemo {
   }
 }
 
-
-
- const MyApp = () =>{
+const MyApp = () => {
   let myService;
-  const dbInit = async()=>{
-    myService =  IndexedService.getInstance();
+  const dbInit = async () => {
+    myService = IndexedService.getInstance();
     await myService.initDB();
     console.log("ㅇㅋ");
   };
-  useEffect(()=>{
+  useEffect(() => {
     dbInit();
-    
-  },[])
+  }, []);
   const compId = useId();
   const textareaRef = useRef(null);
   const [memoList, setMemoList] = useState<Array<BongMemo>>([]);
@@ -133,7 +130,7 @@ class BongMemo {
       </section>
     </section>
   );
-}
+};
 const AppFinal = memo(MyApp);
 AppFinal.displayName = "AppFinal";
 export default AppFinal;
