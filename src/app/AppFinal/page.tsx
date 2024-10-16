@@ -16,14 +16,14 @@ const MyApp = () => {
   const [memoList, setMemoList] = useState<Array<BongMemoObjectType>>([]);
 
   // memo functions
-  const getAllBongMemos = async () => {
+  const getAllBongMemos = useCallback(async () => {
     const memoService = MemoService.getInstance();
     const result = await memoService.getAllMemo();
     const sortedResult = result.sort((a, b) => {
       return new Date(b.date).getTime() - new Date(a.date).getTime();
     });
     setMemoList(sortedResult);
-  };
+  }, []);
   const addMemo = async (bongMemo: BongMemoObjectType) => {
     const memoService = MemoService.getInstance();
     const result = await memoService.addNewMemo(bongMemo);
@@ -121,7 +121,7 @@ const MyApp = () => {
       <div>목표: 상태를 이해하고, 사용할 수 있다.</div>
 
       <button type="button" onClick={handleAllClean}>
-        클린
+        초기화
       </button>
 
       <section>
@@ -130,7 +130,7 @@ const MyApp = () => {
           onSubmit={onFormSubmit}
           ref={formRef}
         ></form>
-        <div style={{ display: "flex" }}>
+        <div className="custom-form-div">
           <label htmlFor={`${compId}-memoTitle`}>제목</label>
           <input
             form={`${compId}-form-memo`}
@@ -139,7 +139,7 @@ const MyApp = () => {
             required={true}
           />
         </div>
-        <div style={{ display: "flex" }}>
+        <div className="custom-form-div">
           <label htmlFor={`${compId}-memoContent`}>내용</label>
           <textarea
             required={true}
@@ -169,22 +169,27 @@ const MyApp = () => {
             onInput={handleInput}
             style={{ overflow: "hidden", resize: "none" }}
           />
+          {/* </div> */}
         </div>
-        <button
-          form={`${compId}-form-memo`}
-          className="custom-form-button"
-          type="reset"
-        >
-          초기화(<kbd>Esc</kbd>)
-        </button>
-        <button
-          type="submit"
-          form={`${compId}-form-memo`}
-          className="custom-form-button"
-          ref={submitButtonRef}
-        >
-          저장(<kbd>Shift</kbd> + <kbd>Enter</kbd>)
-        </button>
+        <div className="custom-form-div">
+          <button
+            form={`${compId}-form-memo`}
+            className="custom-form-button"
+            type="reset"
+          >
+            초기화(<kbd>Esc</kbd>)
+          </button>
+        </div>
+        <div className="custom-form-div">
+          <button
+            type="submit"
+            form={`${compId}-form-memo`}
+            className="custom-form-button"
+            ref={submitButtonRef}
+          >
+            저장(<kbd>Shift</kbd> + <kbd>Enter</kbd>)
+          </button>
+        </div>
       </section>
       <section>
         <h2>메모 리스트</h2>
@@ -192,10 +197,14 @@ const MyApp = () => {
           {memoList.map((memo: BongMemoObjectType, index: number) => {
             return (
               <li key={`${compId}-list-${index}`}>
-                <h3>{memo.title}</h3>
-                <p>{memo.id}</p>
-                <p>{memo.date.toLocaleString()}</p>
-                <p>{memo.content}</p>
+                <details>
+                  <summary>
+                    <h3>{memo.title}</h3>
+                  </summary>
+                  <p>{memo.id}</p>
+                  <p>{memo.date.toLocaleString()}</p>
+                  <p>{memo.content}</p>
+                </details>
                 <DialogModal openButton={<button>수정버튼</button>}>
                   {<div>수졍용</div>}
                 </DialogModal>

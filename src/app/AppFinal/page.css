@@ -18,6 +18,12 @@
   /* flex-grow: 1; */
 }
 
+.final-page .custom-form-div {
+  display: flex;
+  max-width: 600px;
+  width: 100%;
+}
+
 .final-page  input {
   background-color: transparent;
   border-width: 2px;
@@ -42,8 +48,8 @@
 }
 
 section.final-page .custom-form-button:hover {
-  border: 2px solid blue !important; 
-  background-color: blue !important;
+  /* border: 2px solid blue !important;  */
+  background-color: rgba(124, 124, 124, 0.484) !important;
 }
 
 .final-page textarea {
