@@ -27,6 +27,9 @@ const HomePage = memo(() => {
           <a href="/241010">241010 useState와 상태</a>
         </li>
         <li>
+          <a href="/241011">241011 함수 응용</a>
+        </li>
+        <li>
           <a href="/241017">241017 fetch</a>
         </li>
         <li>
