@@ -6,15 +6,7 @@
   - [링크](#링크)
   - [2024. 10. 17. 목](#2024-10-17-목)
     - [지난시간 복습](#지난시간-복습)
-  - [2024. 10. 10. 목](#2024-10-10-목)
-    - [웹애플리케이션이란?](#웹애플리케이션이란)
-    - [javascript, html, css](#javascript-html-css)
-      - [javascript](#javascript)
-      - [html](#html)
-      - [css](#css)
-    - [vite](#vite)
-    - [React.js](#reactjs)
-    - [프로젝트 시작하기](#프로젝트-시작하기)
+    - [버튼 사용 방법](#버튼-사용-방법)
     - [./src/App.tsx](#srcapptsx)
     - [HTML 태그](#html-태그)
       - [상수](#상수)
@@ -65,7 +57,8 @@
       // 여기에 각종 기능
 
       return(
-        <!-- 여기에 HTML(react Node) -->
+        <>
+          <!-- 여기에 HTML(react Node) -->
         </>
       );
     }
@@ -79,6 +72,26 @@
     - `<></>` react fragment, react에서만 사용하는 일종의 빈 태그. 그냥 당분간 강박적으로 모든 react 컴포넌트는 `<></>`로 시작할 예정
     - `<h1>제목</h1>` h태그는 h뒤에 있는 숫자가 작아질 수록 높은 계층의 제목
     - `<p>문단</p>` p태그는 문단을 말함.
+
+### 버튼 사용 방법
+- `function 함수이름(){};`으로 함수를 javascript 부분에 함수를 만들고
+- 버튼에 기능을 넣으려면 `<button>버튼이름</button>`으로 버튼을 만들고
+- 여기에 `<button onClick={함수이름} >버튼이름</button>` 이렇게 기능을 넣는다. 
+- ``` tsx
+  function App(){
+    function 버튼누르면되는함수(){
+      console.log("버튼눌렸어");
+    }
+    return(
+      <>
+        <button onClick = {버튼누르면되는함수}>
+          버튼이름
+        </button>
+      </>
+    )
+  }
+  export default App;
+  ```
 
 ## 2024. 10. 10. 목
   > 24학년도 2학기는 React.js를 이용해 간단한 웹 애플리케이션을 만드는 것을 목표로 합니다. 
