@@ -1,6 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouteObject,
+  RouterProvider,
+} from "react-router-dom";
 import "./index.css";
 import HomePage from "./app/page.tsx";
 import App241010 from "./app/App241010/page.tsx";
@@ -11,7 +15,9 @@ import App241017 from "./app/App241017/page.tsx";
 import Homework241010 from "./app/Homework241010/page.tsx";
 import App241024 from "./app/App241024/page.tsx";
 import App241011 from "./app/App241011/page.tsx";
-const router = createBrowserRouter([
+import App241012 from "./app/App241012/page.tsx";
+
+export const routes: RouteObject[] = [
   {
     path: "/",
     element: <HomePage />,
@@ -33,6 +39,10 @@ const router = createBrowserRouter([
     element: <App241011 />,
   },
   {
+    path: "/241012",
+    element: <App241012 />,
+  },
+  {
     path: "/241017",
     element: <App241017 />,
   },
@@ -48,7 +58,8 @@ const router = createBrowserRouter([
     path: "/final",
     element: <AppFinal />,
   },
-]);
+];
+const router = createBrowserRouter(routes);
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RouterProvider router={router} />

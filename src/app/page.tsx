@@ -1,4 +1,6 @@
 import { memo } from "react";
+import { routes } from "../main";
+import { RouteObject } from "react-router-dom";
 
 const HomePage = memo(() => {
   return (
@@ -10,7 +12,15 @@ const HomePage = memo(() => {
         봉우리코더 프로젝트 리포지토리 바로가기
       </a>
       <h2>숙제</h2>
+
       <ol>
+        {routes.map((element: RouteObject, index: number) => {
+          return (
+            <li>
+              <a href={element.path}>{element.path}</a>
+            </li>
+          );
+        })}
         <li>
           <a href="/hw241010">241010숙제</a>
         </li>
