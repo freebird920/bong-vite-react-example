@@ -3,12 +3,14 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap");
 .final-page {
   display: flex;
+  margin-right: auto;
+  margin-left: auto;
   justify-content: center; /* 가로 중앙 정렬 */
-  align-items: center;     /* 세로 중앙 정렬 */
-  height: 100vh;           /* 화면 전체 높이를 차지 */
+  align-items: center; /* 세로 중앙 정렬 */
+  /* height: 100vh;           화면 전체 높이를 차지 */
   flex-direction: column;
-  font-family: "IBM Plex Sans KR", "Noto Sans KR", sans-serif;
-  font-weight: 500;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
   font-optical-sizing: auto;
   font-smooth: auto;
   gap: 10px;
@@ -37,7 +39,6 @@
   border-radius: 5px;
   border-color: rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-
 }
 
 .final-page .custom-form-button {
@@ -93,5 +94,11 @@ kbd {
 
 .memo-list-ul {
   max-width: 600px;
-
+  min-width: 600px;
+  list-style: none; /* 리스트 아이템 앞의 기본 점 제거 */
+}
+.memo-list-li {
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+  width: 100%;
+  margin-bottom: 10px; /* 아이템 간 간격 추가 */
 }

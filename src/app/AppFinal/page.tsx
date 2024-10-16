@@ -189,10 +189,10 @@ const MyApp = () => {
         <ul className="memo-list-ul">
           {memoList.map((memo: BongMemoObjectType, index: number) => {
             return (
-              <li key={`${compId}-list-${index}`}>
+              <li className="memo-list-li" key={`${compId}-list-${index}`}>
                 <details>
                   <summary>
-                    {index + 1} {memo.title}
+                    [{memoList.length - index}] 제목:{memo.title} (자세히)
                   </summary>
                   <p>{memo.id}</p>
                   <p>{memo.date.toLocaleString()}</p>
