@@ -2,17 +2,21 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap");
 .final-page {
-  /* font-family: ; */
+  display: flex;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center;     /* 세로 중앙 정렬 */
+  height: 100vh;           /* 화면 전체 높이를 차지 */
+  flex-direction: column;
   font-family: "IBM Plex Sans KR", "Noto Sans KR", sans-serif;
   font-weight: 500;
   font-optical-sizing: auto;
   font-smooth: auto;
+  gap: 10px;
 }
 
 .final-page label {
   text-align: center;
   flex-wrap: nowrap;
-  flex-basis: 100px;
   flex-shrink: 1;
 
   /* flex-grow: 1; */
@@ -20,23 +24,23 @@
 
 .final-page .custom-form-div {
   display: flex;
+  flex-direction: column;
   max-width: 600px;
   width: 100%;
+  gap: 5px;
 }
 
-.final-page  input {
+.final-page input {
   background-color: transparent;
   border-width: 2px;
   /* width: 100%; */
   border-radius: 5px;
   border-color: rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-  flex-basis: 200px;
-  flex-shrink: 1;
-  flex-grow: 1;
+
 }
 
-.final-page .custom-form-button{
+.final-page .custom-form-button {
   font-family: "Noto Sans KR", sans-serif;
   font-weight: 600;
   font-optical-sizing: auto;
@@ -85,4 +89,9 @@ kbd {
   line-height: 1;
   padding: 2px 4px;
   white-space: nowrap;
+}
+
+.memo-list-ul {
+  max-width: 600px;
+
 }

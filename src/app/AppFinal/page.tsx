@@ -107,8 +107,10 @@ const MyApp = () => {
     // 컴포넌트 언마운트 시 이벤트 리스너 해제
     return () => {
       window.removeEventListener("memoAdded", addMemoListener as EventListener);
+
       window.removeEventListener(
         "memoDelete",
+
         deleteMemoListener as EventListener
       );
     };
@@ -120,86 +122,77 @@ const MyApp = () => {
       <div>간단한 메모 애플리케이션 만들기</div>
       <div>목표: 상태를 이해하고, 사용할 수 있다.</div>
 
-      <button type="button" onClick={handleAllClean}>
-        초기화
-      </button>
-
-      <section>
+      <section className="custom-form-div">
         <form
           id={`${compId}-form-memo`}
           onSubmit={onFormSubmit}
           ref={formRef}
         ></form>
-        <div className="custom-form-div">
-          <label htmlFor={`${compId}-memoTitle`}>제목</label>
-          <input
-            form={`${compId}-form-memo`}
-            id={`${compId}-memoTitle`}
-            name="memoTitle"
-            required={true}
-          />
-        </div>
-        <div className="custom-form-div">
-          <label htmlFor={`${compId}-memoContent`}>내용</label>
-          <textarea
-            required={true}
-            onKeyDown={(e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-              switch (e.key) {
-                case "Enter":
-                  if (e.shiftKey) {
-                    e.preventDefault;
-                    // formRef.current?.submit() ;
-                    submitButtonRef.current?.click();
-                    // e.currentTarget;
-                  }
-                  break;
-                case "Escape":
+        <label htmlFor={`${compId}-memoTitle`}>제목</label>
+        <input
+          form={`${compId}-form-memo`}
+          id={`${compId}-memoTitle`}
+          name="memoTitle"
+          required={true}
+        />
+        <label htmlFor={`${compId}-memoContent`}>내용</label>
+        <textarea
+          required={true}
+          onKeyDown={(e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+            switch (e.key) {
+              case "Enter":
+                if (e.shiftKey) {
                   e.preventDefault;
-                  formRef.current?.reset();
-                  break;
-                default:
-                  break;
-              }
-            }}
-            placeholder="내용을 입력하세요."
-            form={`${compId}-form-memo`}
-            id={`${compId}-memoContent`}
-            name="memoContent"
-            ref={textareaRef}
-            onInput={handleInput}
-            style={{ overflow: "hidden", resize: "none" }}
-          />
-          {/* </div> */}
-        </div>
-        <div className="custom-form-div">
-          <button
-            form={`${compId}-form-memo`}
-            className="custom-form-button"
-            type="reset"
-          >
-            초기화(<kbd>Esc</kbd>)
-          </button>
-        </div>
-        <div className="custom-form-div">
-          <button
-            type="submit"
-            form={`${compId}-form-memo`}
-            className="custom-form-button"
-            ref={submitButtonRef}
-          >
-            저장(<kbd>Shift</kbd> + <kbd>Enter</kbd>)
-          </button>
-        </div>
+                  // formRef.current?.submit() ;
+                  submitButtonRef.current?.click();
+                  // e.currentTarget;
+                }
+                break;
+              case "Escape":
+                e.preventDefault;
+                formRef.current?.reset();
+                break;
+              default:
+                break;
+            }
+          }}
+          placeholder="내용을 입력하세요."
+          form={`${compId}-form-memo`}
+          id={`${compId}-memoContent`}
+          name="memoContent"
+          ref={textareaRef}
+          onInput={handleInput}
+          style={{ overflow: "hidden", resize: "none" }}
+        />
+        <button
+          form={`${compId}-form-memo`}
+          className="custom-form-button"
+          type="reset"
+        >
+          초기화(<kbd>Esc</kbd>)
+        </button>
+        <button
+          type="submit"
+          form={`${compId}-form-memo`}
+          className="custom-form-button"
+          ref={submitButtonRef}
+        >
+          저장(<kbd>Shift</kbd> + <kbd>Enter</kbd>)
+        </button>
       </section>
       <section>
         <h2>메모 리스트</h2>
-        <ul>
+
+        <button type="button" onClick={handleAllClean}>
+          초기화
+        </button>
+        <ul className="memo-list-ul">
           {memoList.map((memo: BongMemoObjectType, index: number) => {
             return (
               <li key={`${compId}-list-${index}`}>
                 <details>
                   <summary>
-                    <h3>{memo.title}</h3>
+                    {index + 1} {memo.title}
                   </summary>
                   <p>{memo.id}</p>
                   <p>{memo.date.toLocaleString()}</p>
