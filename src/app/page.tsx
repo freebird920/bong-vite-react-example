@@ -14,7 +14,7 @@ const HomePage = memo(() => {
       <h2>숙제</h2>
 
       <ol>
-        {routes.map((element: RouteObject, index: number) => {
+        {routes.map((element: RouteObject) => {
           return (
             <li>
               <a href={element.path}>{element.path}</a>
