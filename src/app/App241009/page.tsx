@@ -1,9 +1,11 @@
 export default function App241009() {
-
   function printHello() {
     console.log("Hello");
   }
-
+  let myCounter: any = 0;
+  function addCounter() {
+    return myCounter++;
+  }
   return (
     <>
       <h1>함수, 변수 그리고 console.log 연습</h1>
@@ -86,6 +88,17 @@ export default function App241009() {
         }}
       >
         누르고 확인
+      </button>
+
+      <h3>함수 응용</h3>
+      <p>{myCounter}</p>
+      <button onClick={addCounter}>counter 올리기</button>
+      <button
+        onClick={() => {
+          console.log(myCounter);
+        }}
+      >
+        숫자 확인하기
       </button>
     </>
   );
