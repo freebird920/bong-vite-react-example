@@ -1,9 +1,10 @@
 // import css
 import "./page.css";
-import { memo, useEffect, useId, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useId, useRef, useState } from "react";
 import { IndexedService } from "./services/indexedService";
 import { BongMemoObjectType } from "./schemas/BongMemoSchema";
 import { MemoService } from "./services/memoService";
+import DialogModal from "./components/DialogModal";
 
 const MyApp = () => {
   const compId = useId();
@@ -14,7 +15,7 @@ const MyApp = () => {
   const submitButtonRef = useRef<HTMLButtonElement>(null);
   const [memoList, setMemoList] = useState<Array<BongMemoObjectType>>([]);
 
-  // memo functions 
+  // memo functions
   const getAllBongMemos = async () => {
     const memoService = MemoService.getInstance();
     const result = await memoService.getAllMemo();
@@ -49,38 +50,43 @@ const MyApp = () => {
     deleteMemo(uuid);
   };
 
-  const onFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const title = (form.elements.namedItem("memoTitle") as HTMLInputElement)
-      .value;
-    const content = (
-      form.elements.namedItem("memoContent") as HTMLTextAreaElement
-    ).value;
-    const date = new Date();
-    const newMemo: BongMemoObjectType = {
-      id: crypto.randomUUID(),
-      date: date,
-      content: content,
-      title: title,
-    };
-    handleAddButtonClick(newMemo);
+  const onFormSubmit = useCallback(
+    async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const title = (form.elements.namedItem("memoTitle") as HTMLInputElement)
+        .value;
+      const content = (
+        form.elements.namedItem("memoContent") as HTMLTextAreaElement
+      ).value;
+      const date = new Date();
+      const newMemo: BongMemoObjectType = {
+        id: crypto.randomUUID(),
+        date: date,
+        content: content,
+        title: title,
+      };
+      handleAddButtonClick(newMemo);
 
-    form.reset();
-  };
+      form.reset();
+    },
+    []
+  );
 
   // 핸들러
-  const handleAddButtonClick = (newMemo: BongMemoObjectType) => {
-    // memoAdded라는 커스텀 이벤트 발생
+  // 핸들러
+  const handleAddButtonClick = useCallback((newMemo: BongMemoObjectType) => {
     const event = new CustomEvent("memoAdded", { detail: newMemo });
-    window.dispatchEvent(event); // 이벤트 발생
-  };
-  const handleDeleteButtonClick = (
-    uuid: `${string}-${string}-${string}-${string}-${string}`
-  ) => {
-    const event = new CustomEvent("memoDelete", { detail: uuid });
     window.dispatchEvent(event);
-  };
+  }, []);
+
+  const handleDeleteButtonClick = useCallback(
+    (uuid: `${string}-${string}-${string}-${string}-${string}`) => {
+      const event = new CustomEvent("memoDelete", { detail: uuid });
+      window.dispatchEvent(event);
+    },
+    []
+  );
   const handleAllClean = async () => {
     const indexedService = new IndexedService();
     const result = await indexedService.clearStore("bongDb", "bongMemo");
@@ -92,11 +98,10 @@ const MyApp = () => {
     textarea.style.height = "auto"; // 높이를 초기화
     textarea.style.height = textarea.scrollHeight + "px"; // 내용에 맞춰 높이 재설정
   };
-
   useEffect(() => {
     // 메모 로드
     getAllBongMemos();
-    // 이벤트리스너 추가 
+    // 이벤트리스너 추가
     window.addEventListener("memoAdded", addMemoListener as EventListener);
     window.addEventListener("memoDelete", deleteMemoListener as EventListener);
     // 컴포넌트 언마운트 시 이벤트 리스너 해제
@@ -108,10 +113,6 @@ const MyApp = () => {
       );
     };
   }, []);
-
-
-
-
 
   return (
     <section className="final-page">
@@ -190,11 +191,14 @@ const MyApp = () => {
         <ul>
           {memoList.map((memo: BongMemoObjectType, index: number) => {
             return (
-              <li key={index}>
+              <li key={`${compId}-list-${index}`}>
                 <h3>{memo.title}</h3>
                 <p>{memo.id}</p>
                 <p>{memo.date.toLocaleString()}</p>
                 <p>{memo.content}</p>
+                <DialogModal openButton={<button>수정버튼</button>}>
+                  {<div>수졍용</div>}
+                </DialogModal>
                 <button
                   type="button"
                   onClick={() => {
