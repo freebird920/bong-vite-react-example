@@ -7,7 +7,18 @@
   - [2024. 10. 17. 목](#2024-10-17-목)
     - [처음 세팅](#처음-세팅)
     - [지난시간 복습](#지난시간-복습)
-    - [버튼 사용 방법](#버튼-사용-방법)
+    - [react component](#react-component)
+    - [console.log();](#consolelog)
+    - [이번시간에 해볼것.](#이번시간에-해볼것)
+  - [2024. 10. 10. 목](#2024-10-10-목)
+    - [웹애플리케이션이란?](#웹애플리케이션이란)
+    - [javascript, html, css](#javascript-html-css)
+      - [javascript](#javascript)
+      - [html](#html)
+      - [css](#css)
+    - [vite](#vite)
+    - [React.js](#reactjs)
+    - [프로젝트 시작하기](#프로젝트-시작하기)
     - [./src/App.tsx](#srcapptsx)
     - [HTML 태그](#html-태그)
       - [상수](#상수)
@@ -61,7 +72,7 @@
   ```
 
 
-- react component 
+### react component 
     - react 컴포넌트는 함수다. 
     - react에서 이걸 가져다가 쓸 수 있다. 
     - react 컴포넌트는 html(reactNode)을 return한다. 
@@ -89,6 +100,20 @@
     - `<h1>제목</h1>` h태그는 h뒤에 있는 숫자가 작아질 수록 높은 계층의 제목
     - `<p>문단</p>` p태그는 문단을 말함.
 
+
+### console.log();
+- `console.log()`는 javascript 실행 환경 콘솔에 메시지를 띄우는 함수
+- `cosnsole.log(메시지)`의 형태로 쓴다.
+- 그런데 javascript에서 글자에 따옴표를 붙이지 않으면 **변수명**을 말하는거니 
+- 주의할 것 
+- 예를들면
+- ```tsx
+  let 내이름 = "봉우리";
+  console.log("내이름"); // 콘솔에 내이름 출력
+  cosnole.log(내이름);  // 콘솔에 봉우리 출력
+  ```
+- 어떤 것을 실행한 결과라던가 뭐든지 궁금하면 꼭 `console.log()`사용해서 출력해보자
+
 ### 버튼 사용 방법
 - `function 함수이름(){};`으로 함수를 javascript 부분에 함수를 만들고
 - 버튼에 기능을 넣으려면 `<button>버튼이름</button>`으로 버튼을 만들고
@@ -108,6 +133,14 @@
   }
   export default App;
   ```
+
+### 이번시간에 해볼것.
+  - react 컴포넌트 만들기
+  - javascript 부분에 `내이름`이라는 변수 만들고
+  - `내이름`변수에 "내이름" 저장하기
+  -  `<h1> {내이름} </h1>` 으로 제목 만들어보기
+  -  `<button>콘솔에내이름 출력</button>` 으로 
+  - 
 
 ## 2024. 10. 10. 목
   > 24학년도 2학기는 React.js를 이용해 간단한 웹 애플리케이션을 만드는 것을 목표로 합니다. 
