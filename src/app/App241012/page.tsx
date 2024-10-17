@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import "./page.css";
 
 type CoordinateType = {
@@ -7,9 +7,11 @@ type CoordinateType = {
 };
 
 const App241012 = memo(() => {
+  const [a, setA] = useState(1);
+  const [b, setB] = useState(0);
   // 함수의 기울기(a)와 y절편(b)를 정의합니다.
-  const a = 1; // 기울기
-  const b = 0; // y절편
+  // const a = 1; // 기울기
+  // const b = 0; // y절편
 
   const xLength = 101;
   const yLength = 101;
@@ -74,17 +76,35 @@ const App241012 = memo(() => {
   // 각 문자를 고정된 크기의 div로 감싸는 함수
   const renderGraph = () => {
     return (
-      <div className="graph-container">
-        {lines.map((line, rowIndex) => (
-          <div className="graph-row" key={rowIndex}>
-            {[...line].map((char, colIndex) => (
-              <div className="graph-cell" key={colIndex}>
-                {char}
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
+      <>
+        <div>
+          <input
+            value={a}
+            type="number"
+            onChange={(event) => {
+              setA(Number(event.currentTarget.value));
+            }}
+          />
+          <input
+          type="number"
+            value={b}
+            onChange={(event) => {
+              setB(Number(event.currentTarget.value));
+            }}
+          />
+        </div>
+        <div className="graph-container">
+          {lines.map((line, rowIndex) => (
+            <div className="graph-row" key={rowIndex}>
+              {[...line].map((char, colIndex) => (
+                <div className="graph-cell" key={colIndex}>
+                  {char}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </>
     );
   };
 
