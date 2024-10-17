@@ -71,6 +71,22 @@
   }
   ```
 
+  ```tsx
+  export default function App(){
+    function 빵사오는녀석( 돈:number ){
+      let 빵값:number; 
+      빵값 = 돈 * 10;
+      let 결과:string =`${빵값}원어치빵`
+      return(결과)
+    }
+
+    console.log(빵사오는녀석(1000)); // "10000원어치빵" 출력
+    return(
+      <>
+      </>
+    )
+  }
+  ```
 
 ### react component 
     - react 컴포넌트는 함수다. 
