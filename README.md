@@ -5,6 +5,7 @@
 - [Bong React Vite Jangin](#bong-react-vite-jangin)
   - [링크](#링크)
   - [2024. 10. 17. 목](#2024-10-17-목)
+    - [처음 세팅](#처음-세팅)
     - [지난시간 복습](#지난시간-복습)
     - [버튼 사용 방법](#버튼-사용-방법)
     - [./src/App.tsx](#srcapptsx)
@@ -26,6 +27,21 @@
 - [카카오톡오픈채팅](https://open.kakao.com/o/gcyGpNmg)
 
 ## 2024. 10. 17. 목
+
+### 처음 세팅
+- 컴퓨터 킨다.
+- 탐색기
+- C:\DOWN 들어가서
+- bongcoder.zip 더블클릭
+- 안에 내용 복사
+- 바탕화면에 붙여넣고
+- vscode 오른쪽 클릭 -> 관리자 권한으로 실행
+- vscode 열리면 왼쪽 위 file - open folder
+- 바탕화면 - bongcoder 
+- 열리면 <kbd>ctrl</kbd> + <kbd>`</kbd>
+- `npm install`
+- 다 되면
+- `npm run dev`
 
 ### 지난시간 복습
 - 웹애플리케이션: **인터넷 브라우저**를 통해 실행할 수 있는 소프트웨어
