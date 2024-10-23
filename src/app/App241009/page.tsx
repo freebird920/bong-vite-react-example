@@ -6,6 +6,9 @@ export default function App241009() {
   function addCounter() {
     return myCounter++;
   }
+
+  let inputValue: number = 0;
+
   return (
     <>
       <h1>함수, 변수 그리고 console.log 연습</h1>
