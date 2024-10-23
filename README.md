@@ -4,6 +4,11 @@
 
 - [Bong React Vite Jangin](#bong-react-vite-jangin)
   - [링크](#링크)
+  - [2024. 10. 24. 목](#2024-10-24-목)
+    - [지난시간? 인강? 복습](#지난시간-인강-복습)
+    - [typescript](#typescript)
+    - [Array 와 forEach()](#array-와-foreach)
+    - [useState](#usestate)
   - [2024. 10. 17. 목](#2024-10-17-목)
     - [지난시간 복습](#지난시간-복습)
     - [버튼 사용 방법](#버튼-사용-방법)
@@ -24,6 +29,30 @@
 ## 링크
 - [예제](https://bong-vite-react-example.pages.dev/)
 - [카카오톡오픈채팅](https://open.kakao.com/o/gcyGpNmg)
+
+## 2024. 10. 24. 목
+
+### 지난시간? 인강? 복습
+
+### typescript 
+- 지금까지는 `let 변수:any = 값` 처럼 `any` 타입을 썼는데 
+- 이제부터는 슬슬 타입을 명시하는 것을 연습하겠습니다.
+- 대표 타입!
+    - `let 변수:string = "값";`
+    - `let 변수:number = 15;`
+    - `let 변수:boolean = true` `let 변수:boolean = false`
+    - 함수에서는 `function 함수이름():리턴되는거타입` 이런식으로 쓴다.
+    - ```tsx
+      function 함수이름(먹이: number):number{
+        let 결과값:number = 먹이 + 10;
+        return 결과값;
+      }
+      ```
+### Array 와 forEach()
+### useState
+- react에서는 훅(Hook)이라는 것이 있습니다. 
+- 잘 쓰면 어려운 기능도 훅훅 (웃음)
+- 
 
 ## 2024. 10. 17. 목
 
