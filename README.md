@@ -88,7 +88,6 @@ function ChildComp2(){
     <h1>comp2</h1>
   </>);
 }
-// export default Comp2
 
 function ParentComp(){
 
