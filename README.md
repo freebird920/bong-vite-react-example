@@ -7,7 +7,7 @@
   - [2024. 10. 24. 목](#2024-10-24-목)
     - [지난시간? 인강? 복습](#지난시간-인강-복습)
     - [typescript](#typescript)
-    - [Array 와 forEach()](#array-와-foreach)
+    - [Array 와 forEach() map()](#array-와-foreach-map)
     - [useState](#usestate)
   - [2024. 10. 17. 목](#2024-10-17-목)
     - [처음 세팅](#처음-세팅)
@@ -60,7 +60,61 @@
         return 결과값;
       }
       ```
-### Array 와 forEach()
+### Array 와 forEach() map()
+- 배열은 `[]` 안에 여러가지가 들어 있는 것이다. 
+- `[요소1, 요소2, 요소3]`과 같이 `,`로 구분한다.
+- `.map()` `.forEach()`
+- `[요소1, 요소2, 요소3].map( (요소,index  )=>{ return  리턴값;})`
+- ```tsx
+    let result = ["a","b","c"].map(
+      function(요소:string, 순번:number){
+        return `${요소} ${순번}`
+      }
+    ); // 
+    console.log(result);
+  ```
+
+### react component
+```tsx
+function ChildComp1(){
+  return (<>
+    <h1>comp1</h1>
+  </>);
+}
+// export default Comp1
+
+function ChildComp2(){
+  return (<>
+    <h1>comp2</h1>
+  </>);
+}
+// export default Comp2
+
+function ParentComp(){
+
+  return(
+    <ChildComp1/>
+    <ChildComp2/>
+  );
+}
+```
+
+```tsx
+function ParentComp(){
+
+  return(
+    <>
+      {
+        [
+          <h1>1번</h1>,
+          <h1>2번</h1>,
+          <h1>3번</h1>
+        ]
+      }
+    </>
+  )
+}
+```
 ### useState
 - react에서는 훅(Hook)이라는 것이 있습니다. 
 - 잘 쓰면 어려운 기능도 훅훅 (웃음)
