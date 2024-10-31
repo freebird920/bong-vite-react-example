@@ -11,12 +11,16 @@
       - [**Array**의 **메서드** **.forEach()**](#array의-메서드-foreach)
       - [**Array**의 **메서드** **.map()**](#array의-메서드-map)
     - [타입과 메서드](#타입과-메서드)
-    - [react component](#react-component-1)
     - [useState](#usestate)
+  - [2024. 10. 24. 목](#2024-10-24-목)
+    - [지난시간? 인강? 복습](#지난시간-인강-복습)
+    - [typescript](#typescript)
+    - [Array 와 forEach() map()](#array-와-foreach-map)
+    - [useState](#usestate-1)
   - [2024. 10. 17. 목](#2024-10-17-목)
     - [처음 세팅](#처음-세팅)
     - [지난시간 복습](#지난시간-복습)
-    - [react component](#react-component-2)
+    - [react component](#react-component-1)
     - [console.log();](#consolelog)
     - [이번시간에 해볼것.](#이번시간에-해볼것)
   - [2024. 10. 10. 목](#2024-10-10-목)
@@ -118,6 +122,58 @@ console.log(result) // [2,3,4] 출력됨
   let myNumberArray:number[] = [1,2,3];
   let myStringArray:string[] = ["a","b","c"]
   ```
+### 버튼에 함수 넣기
+- 버튼의 `onClick={함수}`를 통해서 버튼을 눌렸을 때 어떤 함수를 실행시킬 수 있다. 
+```tsx
+function App(){
+  function onButtonClick(){
+    console.log("눌려짐");
+  }
+  return( 
+    <>
+      <button onClick={onButtonClick}>버튼이름</button>
+    </>
+  )
+}
+```
+- 이 버튼을 누르면 콘솔에 눌려짐이라고 뜬다.
+- 
+### useState
+- `useState();`는 리액트의 훅이다. 
+- 훅=편리한 기능정도로 생각
+- 중요 훅으로 `useState` `uesEffect` `useRef` 가 있고 이정도만 알아도 어느정도 okay
+- `useState`는 변수랑 거의 똑같은데 단, 이 값이 변하면 화면도 같이 업데이트 되는 변수라고 생각하면 된다.
+- `useState()`는 `()`안에 어떤값을 넣어서 초기 state 값을 정해줄 수 있다. 
+- `let [state이름, setState이름] = useState<타입>(초기값)` 이렇게 쓴ㄷ가.
+- state에 저장된 값을 바꿀 때는 `setState(바꿀값)`으로 바꾼다.
+```tsx
+  function App(){
+    let [내상태, set내상태] = useState<string>("초기상태");
+    function 내상태바꿔(바꿀값:string){
+      console.log(`${내상태}에서`)
+      set내상태(바꿀값);
+      console.log(`${바꿀값}으로 바뀜 ㅋ`)
+    }
+    return (
+      <>
+        <h1>{내상태}</h1>
+        <button onClick={
+          function (){
+            내상태바꿔("꿀꿀함")
+          }
+        }>상태꿀꿀하게</button>
+        <button onClick={
+          function (){
+            내상태바꿔("기분좋음")
+          }
+        }>기분좋은상태로</button>
+      </>
+    )
+  }
+
+
+
+```
 
 ## 2024. 10. 24. 목
 
