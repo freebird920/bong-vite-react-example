@@ -4,15 +4,19 @@
 
 - [Bong React Vite Jangin](#bong-react-vite-jangin)
   - [링크](#링크)
-  - [2024. 10. 24. 목](#2024-10-24-목)
-    - [지난시간? 인강? 복습](#지난시간-인강-복습)
-    - [typescript](#typescript)
-    - [Array 와 forEach() map()](#array-와-foreach-map)
+  - [2024. 10. 31. 목](#2024-10-31-목)
+    - [지난시간 ? 복습](#지난시간--복습)
+      - [**React Component**](#react-component)
+      - [**Array**](#array)
+      - [**Array**의 **메서드** **.forEach()**](#array의-메서드-foreach)
+      - [**Array**의 **메서드** **.map()**](#array의-메서드-map)
+    - [타입과 메서드](#타입과-메서드)
+    - [react component](#react-component-1)
     - [useState](#usestate)
   - [2024. 10. 17. 목](#2024-10-17-목)
     - [처음 세팅](#처음-세팅)
     - [지난시간 복습](#지난시간-복습)
-    - [react component](#react-component)
+    - [react component](#react-component-2)
     - [console.log();](#consolelog)
     - [이번시간에 해볼것.](#이번시간에-해볼것)
   - [2024. 10. 10. 목](#2024-10-10-목)
@@ -41,6 +45,79 @@
 ## 링크
 - [예제](https://bong-vite-react-example.pages.dev/)
 - [카카오톡오픈채팅](https://open.kakao.com/o/gcyGpNmg)
+
+
+## 2024. 10. 31. 목
+
+### 지난시간 ? 복습 
+
+#### **React Component**
+- react에서는 여러 component를 블록처럼 조합할 수 있다. 
+- react의 컴포넌트는 반드시 다음의 요소를 가져야 한다.
+- 함수일 것
+- return 하는 값이 ReactNode일 것(`<></>` 이 안에 들어가는 것)
+- 함수 이름의 첫 글자는 반드시 알파벳 대문자일 것(app x App o)
+```tsx
+
+function MyH1Component(){
+  return <h1>안녕하십니까.</h1>
+}
+
+function App(){
+  return(
+    <>
+      <MyH1Component></MyH1Component>
+    </>
+    )
+}
+``` 
+
+#### **Array** 
+- `[값1,값2,값3]` 과 같이 쓴다.
+
+#### **Array**의 **메서드** **.forEach()**
+-`Array.forEach();`
+```tsx
+let myArray:number[] = [1,2,3];
+let result = myArray.forEach( 
+  function(element){
+    console.log(element);
+    return element +1;
+});
+// 1, 2, 3 차례로 콘솔에 출력됨
+
+console.log(result) // undefined 출력
+```
+#### **Array**의 **메서드** **.map()**
+-`Array.map();`
+```tsx
+let myArray:number[] = [1,2,3];
+let result = myArray.map( 
+  function(element){
+    console.log(element);
+    return element +1 ;
+});
+// 1, 2, 3 차례로 콘솔에 출력됨
+console.log(result) // [2,3,4] 출력됨
+```
+
+
+### 타입과 메서드
+- typescript(javascript)에는 여러 가지 타입이 있다. 
+- 대표적인 것은 숫자는 `number` 문자는 `string`
+- `Array`는 안에 어떤 타입이 들어가는지에 따라
+    - `string[]` `number[]` 등으로 표현할 수 있다.
+- 다른 타입도 많지만 일단 당분간 이거 두 가지 외에는 전부 `any`타입으로 표기하자.
+- 변수를 선언할 때 타입을 함께 지정할 수 있다. 
+- 변수이름  뒤 에 `:타입`이라고 하면된다.
+- `let 변수이름:타입;`
+- ```tsx
+  let myNumber:number = 1;
+  let myString:string = "hi!";
+
+  let myNumberArray:number[] = [1,2,3];
+  let myStringArray:string[] = ["a","b","c"]
+  ```
 
 ## 2024. 10. 24. 목
 
