@@ -12,6 +12,9 @@
       - [**Array**의 **메서드** **.map()**](#array의-메서드-map)
     - [타입과 메서드](#타입과-메서드)
     - [useState](#usestate)
+    - [boolean](#boolean)
+    - [`<div hidden={true}>`](#div-hiddentrue)
+    - [처음 만들어지는 카운터 어쩌고 나도 해보겠습니다.](#처음-만들어지는-카운터-어쩌고-나도-해보겠습니다)
   - [2024. 10. 24. 목](#2024-10-24-목)
     - [지난시간? 인강? 복습](#지난시간-인강-복습)
     - [typescript](#typescript)
@@ -170,10 +173,52 @@ function App(){
       </>
     )
   }
-
-
-
 ```
+### boolean
+- 새로운 타입! 
+- boolean
+- `true` 또는 `false`
+- `let 불리언:boolean = true;`
+- `let 불리언:boolean = false;`
+- 참 거짓으로 나타낼 수 있다.
+
+### `<div hidden={true}>`
+
+```tsx
+function App(){
+  let [보이게하기, set보이게하기] = useState<boolean>(true);
+  function 숨기는함수(){
+    set보이게하기(!보이게하기) // !는 참 거짓을 뒤집는다는거! 참을 거짓으로 거짓을 참으로
+  } // 이 함수가 호출되면 보이게하기의 참 거짓이 뒤집힌다.
+  
+  return (
+    <>
+      <div hidden={보이게하기}>
+        내가 보입니까?
+      </div>
+      <button onClick={숨기는함수}>보일까말까</button>
+    </>
+  );
+}
+```
+
+### 처음 만들어지는 카운터 어쩌고 나도 해보겠습니다.
+```tsx
+function App(){
+  let [카운터, set카운터] = useState<number>(0);
+  let 올리는함수 = function(){
+    let 새로운숫자:number = 카운터 + 1;
+    set카운터(새로운숫자);
+  }
+  return(
+    <>
+      <div>버튼 {카운터} 번 눌림</div>
+      <button onClick={올리는함수}>눌리기</button>
+    </>
+  );
+}
+```
+
 
 ## 2024. 10. 24. 목
 
