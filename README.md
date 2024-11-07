@@ -4,6 +4,10 @@
 
 - [Bong React Vite Jangin](#bong-react-vite-jangin)
   - [링크](#링크)
+  - [2024. 11. 7. 목](#2024-11-7-목)
+    - [useState](#usestate)
+    - [화살표 함수 `()=>{}`](#화살표-함수-)
+    - [`<input></input>`태그의 속성 `onChange`](#inputinput태그의-속성-onchange)
   - [2024. 10. 31. 목](#2024-10-31-목)
     - [지난시간 ? 복습](#지난시간--복습)
       - [**React Component**](#react-component)
@@ -11,7 +15,7 @@
       - [**Array**의 **메서드** **.forEach()**](#array의-메서드-foreach)
       - [**Array**의 **메서드** **.map()**](#array의-메서드-map)
     - [타입과 메서드](#타입과-메서드)
-    - [useState](#usestate)
+    - [useState](#usestate-1)
     - [boolean](#boolean)
     - [`<div hidden={true}>`](#div-hiddentrue)
     - [처음 만들어지는 카운터 어쩌고 나도 해보겠습니다.](#처음-만들어지는-카운터-어쩌고-나도-해보겠습니다)
@@ -19,7 +23,7 @@
     - [지난시간? 인강? 복습](#지난시간-인강-복습)
     - [typescript](#typescript)
     - [Array 와 forEach() map()](#array-와-foreach-map)
-    - [useState](#usestate-1)
+    - [useState](#usestate-2)
   - [2024. 10. 17. 목](#2024-10-17-목)
     - [처음 세팅](#처음-세팅)
     - [지난시간 복습](#지난시간-복습)
@@ -54,6 +58,109 @@
 - [카카오톡오픈채팅](https://open.kakao.com/o/gcyGpNmg)
 
 
+## 2024. 11. 7. 목
+
+### useState 
+- 화면을 새로 그릴때도 값은 유지 된다.
+- 업데이트 되면 화면을 새로 그린다.
+- `let [스테이트, set스테이트] = useState()`
+- 업데이트 방법: `set스테이트(바꿀값)`
+
+### 화살표 함수 `()=>{}`
+- function으로 쓰는 함수와 거의 똑같음. 
+- `function`키워드가 없어지고 소괄호와 중괄호 사이에 화살표가 붙는다.
+- `function`으로 선언하는 함수와 차이가 있는데 나중에 알아보자. 
+- 체감되는 가장 큰 차이는 호이스팅임
+- 간단하게 쓸 수 있어서 좋다 .^_^ 
+
+### `<input></input>`태그의 속성 `onChange`
+- `onChange`는 `<button>`의 `onClick`과 비슷함
+- `on어쩌구`는 보통 어떤 이벤트를 다루는 속성임
+- `onChange`는 input안에 원래 있던 값이 바뀔 때 실행 할 함수를 말함.
+- `onChange={함수}`와 같이 쓴다. 
+- `onChange={함수}`안에 들어갈 함수는 `event`프로퍼티를 받는다.
+- 그러니깐 함수의 입 부분에 event라는 것을 먹일 수 있다는 뜻이다. 
+- 함수가 호출되면 이벤트에 해당하는 것을 알아서 먹인다.
+- `event.currentTarget.value`는 현재 인풋 창에 입력된 값을 말한다.
+- `onChnage={function(evnet){}}`
+- 화살표 함수로 써보면`onChange = {(event)=>{}}`
+- 예시 
+- ```tsx
+  function App (){
+
+    return  <div>
+              <input onChnage={funciton(event){console.log(evnet.currentTarget.value)}}/>
+            </div>
+      
+  }
+  ```
+
+### useRef
+- 화면을 새로 그릴 때도 값은 유지 된다.
+- 업데이트 되어도 화면을 새로 그리지 않는다.
+- `let 내Ref = useRef();`
+- 업데이트 방법`내Ref.current =  바꿀값`
+
+### object
+- `{}` 안에 들어 있는 값
+- `{}` 안에 `키: 값` 쌍을 입력한다. 
+- object 안에 들어 있는 값에 접근할 때는 `오브젝트이름.키이름`과 같이 한다.
+- ```tsx
+    let myObejct = {
+      키1: "값1",
+      키2: "값2", 
+    }
+  ```
+
+
+```tsx
+import { useRef, useState } from "react";
+
+function App() {
+  console.log("render");
+  const [inputValue, setInputValue] = useState<string>("");
+  const [memoItems, setMemoItems] = useState<any[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const newDemo = {
+    title: "안녕하세요",
+    content: "내용입니다. 뭐든지 입력하세요",
+  };
+  return (
+    <>
+      <label>쓰는칸</label>
+      <input
+        ref={inputRef}
+        // value={inputValue}
+        onChange={function(event){setInputValue(event.currentTarget.value)}}
+      />
+      <button
+        type="button"
+        onClick={function(){
+          console.log(memoItems);
+        }}
+      >
+        눌려
+      </button>
+      <button
+        onClick={function(){
+          const newItem = {
+            title: inputRef.current?.value,
+            content: "내용",
+          };
+          setMemoItems([...memoItems, newItem]);
+        }}
+      >
+        추가하셈
+      </button>
+      {memoItems.map(function(element){
+        return <div>{element.title}</div>;
+      })}
+    </>
+  );
+};
+export default App241107;
+
+```
 ## 2024. 10. 31. 목
 
 ### 지난시간 ? 복습 
