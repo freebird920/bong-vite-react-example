@@ -7,7 +7,6 @@ export default function App241009() {
     return myCounter++;
   }
 
-  let inputValue: number = 0;
 
   return (
     <>

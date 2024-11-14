@@ -2,13 +2,8 @@ import { useRef, useState } from "react";
 
 const App241107 = () => {
   console.log("render");
-  const [inputValue, setInputValue] = useState<string>("");
   const [memoItems, setMemoItems] = useState<any[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
-  const newDemo = {
-    title: "안녕하세요",
-    content: "내용입니다. 뭐든지 입력하세요",
-  };
   return (
     <>
       <label>쓰는칸</label>
