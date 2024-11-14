@@ -5,6 +5,12 @@
 - [Bong React Vite Jangin](#bong-react-vite-jangin)
   - [링크](#링크)
   - [2024. 11. 14. 목](#2024-11-14-목)
+    - [if문](#if문)
+    - [http 요청 **(GET)**](#http-요청-get)
+    - [fetch api](#fetch-api)
+    - [Promise](#promise)
+    - [async await](#async-await)
+    - [응용 겸 숙제!](#응용-겸-숙제)
   - [2024. 11. 7. 목](#2024-11-7-목)
     - [useState](#usestate)
     - [화살표 함수 `()=>{}`](#화살표-함수-)
@@ -60,7 +66,107 @@
 
 
 ## 2024. 11. 14. 목 
-``` tsx
+
+
+### if문
+- if는 한국말로 만약임
+- `if(조건식){조건식이 true라면 실행할거}`
+
+- 위와 같이 쓴다. 
+- `true` `false`로 나오는 것은 비교로 많이 한다? 
+- `a === b` a랑 b 동일합니까? 맞으면 true 아니면 false(javascript에서 `==`도 비슷한 의미인데 그냥 없는걸로 쳐라)
+- `a !== b` a랑 b랑 다릅니까? (javascript에서 `!=`도 비슷한 의미인데 그냥 없는걸로 쳐라)
+- `a > b` `a < b` 네가 생각하는 그거 맞음. 역시 true false
+```ts
+//  예시
+// 1 === 1 1하고 1은 같습니까? 맞으면 true 틀리면 false임
+if( 1 === 1 ) { // true임
+  console.log('당신은천재입니다');
+} // 콘솔 출력됨
+if(1 !== 1) { // false 
+  console.log('당신은천재입니다');
+} // 콘솔 출력 안됨
+```
+
+### http 요청 **(GET)**
+- http 요청은 클라이언트가 서버에게 무언가 요청하는 것을 말함.
+- 여러 가지 요청 방법 중에서 **GET** **POST**를 많이 씀. 
+- GET은 클라이언트측에서 브라우저에게 뭔가를 달라는 요청임.
+- 웹 브라우저 주소 창에다가 어떤 주소를 입력하고 이동하는 것이 바로 **GET**요청임.
+- react get 요청을 하기 위해서 **fetch api**를 사용함.
+
+### fetch api
+- JavaScript에서 HTTP 요청을 보내고 응답을 처리하는 데 사용하는 표준 API
+- fetch api로 요청 보내는 방법
+- `fetch('주소')`
+
+### Promise 
+- 프로미스는 어떤 **비동기** 작업의 실행 결과를 나타내는 타입.
+- pending fulfilled rejected 세 가지 타입을 가진다. 
+- 지금은 그냥`let 받아온값 = fetch('주소')`와 같은 식으로 쓰면 이 받아온 값이란 변수는 **Promise**라는 것만 기억.
+
+### async await
+- Promise의 결과 값은 그냥 일반적인 변수값처럼 가져다 쓰지는 못한다.
+- Promise를 벗겨내려면 `await`을 써야 한다.
+- `let 받아온값 = await fetch('주소')`
+- 근데 `await`을 쓰려면 `async`함수 안에서 써야 한다.
+- `async` 함수 선언 방법
+- ```tsx
+  async function 함수이름(){
+    let 결과 = await fetch("주소")
+    return 결과
+  } 
+  let 함수이름2= async ()=>{
+    let 결과 = await fetch("주소")
+    return 결과
+  } 
+  ``` 
+- async 함수도 Promise를 반환하기 때문에 이걸 일반적인 값으로 바꾸려면 await을 써야함.
+- random.org 주소: 아래의 주소에 `GET`요청을 하면 1~100중에서 랜덤으로 숫자를 준다.
+`https://www.random.org/integers/?num=1&min=1&max=100&col=1&base=10&format=plain&rnd=new`
+
+
+### 예시
+
+```ts
+  function App(){
+    async function getRandomNumber (){
+      let fetchUrl = "https://www.random.org/integers/?num=1&min=1&max=100&col=1&base=10&format=plain&rnd=new";
+      let fetchResponse = await fetch(fetchUrl);
+      return fetchResponse
+    }
+    return (
+      <>
+        <h1>랜덤값 콘솔에 출력</h1>
+        <button onClick={getRandomNumber}>랜덤숫자주셈</button>
+      </>
+    )
+  }
+  export default App;
+```
+
+
+
+
+
+
+
+
+### 응용 겸 숙제!
+1. `useState`를 사용해서 `myNumberA` `myNumberB` `isCorrect` state를 만들기
+2. 랜덤으로 1~100까지 숫자를 받아와서 숫자 `return`하는 `getRandomNumber`함수 만들기
+3. 앞에서 만든 `getRandomNumber`함수를 실행시켜서 받은 값을 앞서 만든 myNumberA에 저장하고 그 다음 , `getRandomNumber`함수를 실행시켜서 받은 값을 앞서 만든myNumberB state에 저장하는 함수 `makeQuestion` 만들기
+4. 어떤 `입력값`을 받아서 `myNumberA + myNumberB`가 `입력값`과 일치하면 `isCorrect` state를 true로 만들고 makeQuestion`함수를 다시 실행`하고 `return;` 만약 일치하지 않으면, `isCorrect` state를 false로 만들고 `return`
+5. `isCorrect`가 참이면 `html` 부분에 `<p></p>` 태그 안에 "정답! 다음문제 가겠습니다." 틀리면 "틀렸습니다! 다시 푸세요"를 출력해보자`<p>{isCorrect ? "정답":"오답"}</p>`
+
+
+
+
+
+
+
+
+``` ts
 import { ChangeEvent, useCallback, useState } from "react";
 
 const App241114 = () => {
@@ -173,7 +279,7 @@ export default App241114;
             </div>
       
   }
-  ```
+```
 
 ### useRef
 - 화면을 새로 그릴 때도 값은 유지 된다.
