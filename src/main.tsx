@@ -18,6 +18,7 @@ import App241011 from "./app/App241011/page.tsx";
 import App241012 from "./app/App241012/page.tsx";
 import Bong001 from "./app/bong001/page.tsx";
 import App241107 from "./app/App241107/page.tsx";
+import App241114 from "./app/App241114/page.tsx";
 
 export const routes: RouteObject[] = [
   {
@@ -57,6 +58,7 @@ export const routes: RouteObject[] = [
     element: <App241024 />,
   },
   { path: "/241107", element: <App241107 /> },
+  { path: "/241114", element: <App241114 /> },
 
   {
     path: "/hw241010",

@@ -10,8 +10,8 @@ const App241017 = memo(() => {
       "https://www.random.org/integers/?num=1&min=1&max=100&col=1&base=10&format=plain&rnd=new"
     );
     const randomNumber = await response.text();
-
-    console.log(randomNumber);
+    if (isNaN(Number(randomNumber))) throw new Error("IS_NAN");
+    return randomNumber;
     button1Ref.current!.disabled = false;
     setResult1(parseInt(randomNumber));
   }
