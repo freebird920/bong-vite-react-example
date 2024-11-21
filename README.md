@@ -62,6 +62,52 @@
 - 게임 만들기?
 
 ```tsx
+import { useCallback, useEffect, useRef, useState } from "react";
+
+const App = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [positionA, setPositionA] = useState<[number, number]>([1, 1]);
+  const draw = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) throw new Error("Canvas Null");
+    const ctx = canvas.getContext("2d");
+    if (!ctx) throw new Error("ctx Null");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "rgb(200,0,0)";
+    ctx.fillRect(positionA[0], positionA[1], 50, 50);
+
+    ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+    ctx.fillRect(580, 30, 50, 50);
+  }, [positionA]);
+  useEffect(() => {
+    setInterval(() => {
+      draw();
+    }, (60 * 1000) / 60);
+  });
+  return (
+    <>
+      <canvas
+        ref={canvasRef}
+        width={800}
+        height={600}
+        className="border-2"
+      ></canvas>
+      <button
+        onClick={() => {
+          setPositionA((prev) => [prev[0], prev[1] + 1]);
+        }}
+      >
+        클릭
+      </button>
+    </>
+  );
+};
+export default App;
+
+```
+
+```tsx
 import { useState, useEffect, useMemo } from "react";
 
 const App = () => {
