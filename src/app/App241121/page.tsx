@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-
+import "./page.css";
 const App = () => {
   const [position, setPosition] = useState([0, 1]); // [row, col]
   const myMap = useMemo(() => {
